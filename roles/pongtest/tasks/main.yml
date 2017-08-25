@@ -1,0 +1,11 @@
+-host: [test]
+
+   - name: This is a test
+     shell: echo "hello world"
+     register: result_txt
+
+   - debug: msg=("{{ result_txt.stdout }}"
+
+
+---
+

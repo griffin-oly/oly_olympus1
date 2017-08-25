@@ -1,0 +1,22 @@
+---
+- name: Perform yum update
+  yum: name=* state=latest update_cache=yes
+
+- name: Check for Unison Service
+  command: rpm -q unison
+  register: rpm_check
+  changed_when: False
+  failed_when: rpm_check.rc > 1
+  args:
+    warn: no
+
+- name: Verify Unison is started
+  service: name=unison state=started enabled=yes
+  when: rpm_check.rc == 0
+
+- name: Check for reboot hint
+  shell: if [ $(rpm -q kernel --queryformat '%{installtime} %{version}-%{release}.%{arch}\n' | sort -n -k1 | tail -1 | cut -d ' ' -f 2) != $(uname -r) ]; then echo 'reboot'; else echo 'no'; fi
+  ignore_errors: true
+  register: reboot_hint
+
+...
