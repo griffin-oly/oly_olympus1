@@ -8,6 +8,9 @@
       - install
   yum: name={{ item }} state=present
   with_items: "{{ common_packages }}"
+  when: common_packages is defined
+
+
 
 - name: Install group packages
   tags:
@@ -21,9 +24,6 @@
 #  service: "name={{ item }} state=started enabled=yes"
 #  with_items: {{ crit_processes }}
 #  when: crit_processes is defined
-
-
-
 
 
 #- name: Create list of users

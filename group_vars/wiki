@@ -2,15 +2,16 @@
 # file: group_vars/wiki
 ntp: ntp-docker.example.com
 backup: wiki-backup.example.com
+#
 group_packages:   # these are the packages only the wiki host will need
   - httpd  # apache
   - htop
-
+#
 crit_processes:   # make sure these are always running
   - httpd
-
-
-
+#
+#
+#
 service_accounts:
   - tomcat
   - mysql
@@ -18,12 +19,12 @@ service_accounts:
   - mule
   - tomcat
   - pkiuser
-
+#
 non_domain_accounts:
   - ggriffiniv  # non domain login
   - kornia
   - 
-
+#
 #
 # Firewall vars very important to get right for each group.
 # default is for these to be perminent.

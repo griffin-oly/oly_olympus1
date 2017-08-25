@@ -11,7 +11,6 @@
 common_packages:
   - vim           # basic text editor
   - bind-utils    # dig ifconfig etc.
-#   - puppet        # puppetlabs agent. this is handled by a seperate role
   - htop          # similar to standard top but with more features.
   - net-tools     # Misc networking tools.
   - zip           # archiving tool
@@ -24,8 +23,8 @@ group_packages: []  # default is empty list this is set in group_vars
 # User related vars
 #
 common_users:
-  - puppet
   - testuser1a
+  - testuser1b
 
 common_user_home: /home
 

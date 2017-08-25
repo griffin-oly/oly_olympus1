@@ -1,12 +1,12 @@
 ---
 
-#- hosts: owncloud
-- hosts: groupa
+# - hosts: owncloud
+# - hosts: groupa
+- hosts: wiki
   roles:
-    - { role: ncrnet.EPEL, tags: [ 'epel' ]}
-    - { role: common, tags: [ 'packages' ]}
-    - net.buffers
-    - ntpq
+    - common
+#
+#
 # local proxy servers have apache temp fix.
 #- hosts: local_proxy
 #  roles:
