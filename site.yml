@@ -3,7 +3,10 @@
 # - hosts: owncloud
 # - hosts: groupa
 - hosts: wiki
-  become: true
+  become: yes
+  become_user: root
+  become_method: sudo
+
   roles:
     - common
 #
