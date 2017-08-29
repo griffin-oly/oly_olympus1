@@ -12,18 +12,18 @@ crit_processes:   # make sure these are always running
 #
 #
 #
-service_accounts:
+service_users:
   - tomcat
   - mysql
   - entuser
   - mule
   - tomcat
   - pkiuser
+  - new_svctest # To be removed after testing.
 #
-non_domain_accounts:
+admin_users:
   - ggriffiniv  # non domain login
-  - kornia
-  - 
+  - newtestadm  # To be removed after testing
 #
 #
 # Firewall vars very important to get right for each group.
