@@ -38,8 +38,8 @@
   with_items: {{ service_users }}
 
 
- - name: Delete list of users
-   tags:
+- name: Delete list of users
+  tags:
     - delete users
   user: name={{ item }} state=absent remove=yes
   with_items:
