@@ -3,6 +3,7 @@
 # - hosts: owncloud
 # - hosts: groupa
 - hosts: wiki
+  become: true
   roles:
     - common
 #
