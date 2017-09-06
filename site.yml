@@ -8,7 +8,8 @@
   become_method: sudo
 
   roles:
-    - common
+    - common  # common apps install and check
+    - users   # role to add users and service accounts
 #
 #
 # local proxy servers have apache temp fix.

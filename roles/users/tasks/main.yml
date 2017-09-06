@@ -20,9 +20,10 @@
     user: ggriffiniv  # change this to entuser after testing.
     key: '{{ item }}'
     state: present
-    exclusive: True
+    # exclusive: True
   with_file:
-    - {{ playbook_dir }}/keys/id_rsa_global_ent.pub
+    - "{{ playbook_dir }}/keys/id_rsa_global_ent.pub"
+    - "{{ playbook_dir }}/keys/id_rsa_ggriffiniv.pub"
 
 
 #- name: Delete list of users
