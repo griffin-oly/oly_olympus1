@@ -15,11 +15,20 @@
   user: name={{ item }} groups=users append=yes
   with_items: "{{ service_users }}"
 
+- name: Set authorized key, removing all the authorized key already set
+  authorized_key:
+    user: entuser
+    key: '{{ item }}'
+    state: present
+    exclusive: True
+  with_file:
+    - {{ playbook_dir }}/keys/id_rsa_global_ent.pub
 
-- name: Delete list of users
-  tags:
-    - delete users
-  user: name={{ item }} state=absent remove=yes
-  with_items:
-    - testuser6
+
+#- name: Delete list of users
+#  tags:
+#    - delete users
+#  user: name={{ item }} state=absent remove=yes
+#  with_items:
+#    - testuser6
 
